@@ -23,12 +23,8 @@ jobs:
           pip install poetry
           pip install ni-python-styleguide
           poetry install
-          pip install flake8 pytest
+          pip install pytest
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      - name: Run linters
-        run: |
-          ni-python-styleguide lint ./nidaqmx/
-          ni-python-styleguide lint ./nidaqmx_examples/
-      - name: Test with pytest
+      - name: Run Tests
         run: |
           poetry run pytest
